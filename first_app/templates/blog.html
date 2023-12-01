@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Blog{% endblock %}
+{% block content %}
+<div style="display: grid; grid-template-columns: auto auto; justify-content: space-around; cursor: pointer;">
+    {% for d in blog %}
+    <div>
+        <img src="{{ d.img_url }}" alt="" style="width: 40%;">
+        <p>{{ d.keyword | join:"-"}}</p>
+        <h1>{{ d.title}}</h1>
+        <p style="width: 40%;">{{ d.content | truncatechars:85}}</p>
+        <p>{{ d.date | date:"SHORT_DATE_FORMAT"}}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
